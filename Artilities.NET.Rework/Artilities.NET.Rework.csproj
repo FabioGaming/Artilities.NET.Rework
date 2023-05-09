@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <PackageId>Artilities.NET.Rework</PackageId>
+    <Title>The official Artilities-API C# wrapper</Title>
+    <Authors>FabioTheFox</Authors>
+    <Product>Artilities.NET.Rework</Product>
+    <Copyright>FabioTheFox@FabiDev/Artilities</Copyright>
+    <PackageIcon>Artilities.NET-Logo.png</PackageIcon>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Art, Artilities, API, REST API, C# Wrapper, Artilities.NET, Artilities dotNet, Artilities Rework, C# library, </PackageTags>
+    <PackageProjectUrl>https://github.com/FabioGaming/Artilities.NET.Rework</PackageProjectUrl>
+    <Company>FabioTheFox</Company>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/FabioGaming/Artilities.NET.Rework</RepositoryUrl>
+    <Description>The official Artilities API library for C#, designed to help Artists with Artblock</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Artilities.NET-Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
