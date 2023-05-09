@@ -18,7 +18,15 @@
     <NeutralLanguage>en</NeutralLanguage>
     <RepositoryUrl>https://github.com/FabioGaming/Artilities.NET.Rework</RepositoryUrl>
     <Description>The official Artilities API library for C#, designed to help Artists with Artblock</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

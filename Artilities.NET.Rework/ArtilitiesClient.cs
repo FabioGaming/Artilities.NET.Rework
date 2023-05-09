@@ -15,6 +15,9 @@ namespace Artilities
         private HttpClient client;
         private Dictionary<string, string> headers;
 
+        /// <summary>
+        /// This Object represents the main ArtilitiesClient for your Project
+        /// </summary>
         public ArtilitiesClient(/*string apiKey = null, string discordId = null*/)
         {
             Version libVersion = Assembly.GetExecutingAssembly().GetName().Version;
@@ -31,7 +34,11 @@ namespace Artilities
             }
         }
 
-
+        /// <summary>
+        /// This function allows you to get an Art Idea from the Artilities Database
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public Objects.DefaultResponse GetIdea()
         {
             try
@@ -44,6 +51,11 @@ namespace Artilities
             catch(Exception e) { throw new Exception(e.Message); }
         }
 
+        /// <summary>
+        /// This function allows you to get an Art Challenge from the Artilities Database
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public Objects.DefaultResponse GetChallenge()
         {
             try
