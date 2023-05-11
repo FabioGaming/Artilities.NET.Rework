@@ -15,15 +15,18 @@ namespace Artilities.Objects
         public int executionTime { get; }
         public List<QueryResult> Lookup { get; } = new List<QueryResult>();
         public string json { get; }
+        public string errorResponse { get; }
 
         public LookupResult(JObject json)
         {
             dynamic jsonObj = (JObject)JsonConvert.DeserializeObject(json.ToString());
             try { statusCode = (int)jsonObj["statuc_code"]; } catch { }
             try { executionTime = (int)jsonObj["execution_time"]; } catch { }
+            try { this.json = json.ToString(); } catch { }
+            try { errorResponse = (string)jsonObj["error_response"]; } catch { }
             try
             {
-                foreach (JArray res in (JArray)jsonObj["query_results"])
+                foreach (JArray res in jsonObj["query_results"])
                 {
                     QueryResult result = new QueryResult(res);
                     Lookup.Add(result);
@@ -41,7 +44,8 @@ namespace Artilities.Objects
 
             public QueryResult(JArray json)
             {
-                //ArgIterator SXVBLÖN/Action?SByte%$
+                try { term = (string)json[0]; } catch { }
+                try { meaning = (string)json[1]; } catch { }
                 
             }
         }

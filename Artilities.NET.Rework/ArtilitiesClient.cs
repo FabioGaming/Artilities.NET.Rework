@@ -67,6 +67,26 @@ namespace Artilities
             }catch(Exception e) { throw new Exception(e.Message); }
         }
 
+        /// <summary>
+        /// This function allows you to look up artist slang from the Artilities Database
+        /// </summary>
+        /// <param name="term"></param>
+        /// <param name="language"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public Objects.LookupResult SlangLookup(string term, Types.Languages language = Types.Languages.eng)
+        {
+            try
+            {
+                term = term.Replace(" ", "%20");
+                var res = client.GetAsync($"/api/dict?query={term}&lang={language}").Result;
+                if((int)res.StatusCode != 200) { if (!ignoreNonOK) { throw new Exception(res.Content.ReadAsStringAsync().Result); } }
+                Objects.LookupResult lookup = new Objects.LookupResult(JObject.Parse(res.Content.ReadAsStringAsync().Result));
+                return lookup;
+            }
+            catch(Exception e) { throw new Exception(e.Message); }
+        }
+
        
     }
 }

@@ -13,6 +13,7 @@ namespace Artilities.Objects
         public string russian { get; }
         public string german { get; }
         public string json { get; }
+        public string errorResponse { get; }
 
         public DefaultResponse(JObject json)
         {
@@ -25,6 +26,7 @@ namespace Artilities.Objects
             try { english = (string)jsonObj[_identifier]["eng"]; } catch { }
             try { russian = (string)jsonObj[_identifier]["ru"]; } catch { }
             try { german = (string)jsonObj[_identifier]["de"]; } catch { }
+            try { errorResponse = (string)jsonObj["error_response"]; } catch { }
 
         }
     }
